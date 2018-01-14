@@ -1,0 +1,74 @@
+<!Doctype Html>
+<Html>
+<head>
+<title>Practice Code with Loops</title>
+</head>
+<body>
+    <h1>Here is some javascript code</h1>
+<script type ="text/javascript">
+
+    //Part 1
+    
+    var i;
+    
+    for (i =1; i<=300; i++)
+    {
+
+              if (i % 5 ==0 )  
+             {
+                document.write("Fizz ,");
+             }
+              else if ( i % 7 ==0)
+             {
+               document.write("Fuzz ,")
+             }
+              else 
+             {
+               document.write(i +", ");
+             }
+        
+    }
+   
+    document.write("<br /><br /><br />");
+
+     //part 2
+       
+    var j;
+    
+    for (j =1; j<=300; j++)
+    {
+    
+              if (j % 3 ==0 && j % 5 ==0  )  
+              {
+                document.write( "FizzFuzz ,");
+              }
+              else 
+              {
+                document.write(j +", ");
+              }
+        
+    }
+   
+    document.write("<br />");
+    
+    document.write("<br />");
+    
+    // Part 3
+
+    var i, j;
+
+	for( i = 7; i>=0  ; --i)
+	
+	{
+	    
+    for( j = 0 ; j<=i; j++)
+        { 
+       document.write('*');
+        }
+       document.write('<br/>');
+	}
+
+	
+</script>
+</body>
+</Html>
