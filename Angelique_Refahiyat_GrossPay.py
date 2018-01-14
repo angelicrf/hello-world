@@ -1,0 +1,10 @@
+
+print("Welcome to Gross Pay Calculator")
+#userNum = input("Enter number of hours: ")
+#print(userNum)
+#userPay = input("Enter hourly pay rate: ")
+#print(userPay)
+userNum = input ("\n\nHours worked: ")
+userPay = input("Hourly pay rate: " )
+grossPay = int(userNum) * float(userPay)
+print("\t\t\t" + str (round( grossPay,1)))
