@@ -1,0 +1,41 @@
+<!Doctype Html>
+<html>
+    <head>The temreture in August in plantes</head>
+    <body>
+        <p id="main">
+        
+        
+        </p>
+        <script>
+            planet_name =["Jupiter", "Venus","Pluto","Saturn","Mars"];
+            temp=[5.2, 7.5,0.72,2.99,0.59];
+            var name ="";
+            
+            var i=0;
+                
+            for(i=0; i<planet_name.length; i++){
+                
+                for(j=1; j<= 1; j++){
+                    
+                    var test = true;
+                    if (temp[i]>1){
+                        test=true;
+                        planet_name[i] = '<span style="background-color:#e5a921">' + planet_name[i] + '</span>'; 
+                    }
+                    else{
+                        test = false;
+                        planet_name[i] = '<span style="background-color:#989663">' + planet_name[i] + '</span>';
+                    }
+                   
+                   
+                    name += planet_name[i]+"<br/> "+temp[i]+ "<br/>"+test+"<br/>"+"----"+"<br/>";
+                    
+                }
+               
+            }
+            
+            document.getElementById("main").innerHTML =name  ;
+            
+        </script>
+    </body>
+    </html>
