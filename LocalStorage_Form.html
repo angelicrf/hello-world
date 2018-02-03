@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html{
+                height: 100%;
+                background-color: #4878a2;
+            }
+            fieldset{
+                width: 600px;
+                border: 2px solid #b13434;
+                margin: 40px auto;
+                
+            }
+            legend{
+                font-size: 25px;
+            }
+            #bO{
+                width:300px;
+                height: 250px;
+                
+                
+            }
+            #bU{
+                margin-left: 130px;
+                border-radius: 5px;
+            }
+            #bU.hoover{
+                background-color: aqua;
+            }
+            #nM{
+                margin-left: 30px;
+            }
+            #cI{
+                margin-left: 40px;
+            }
+            #meN{
+                width:260px;
+                color:brown;
+                height:100px;
+                background-color: #a9c0d4;
+                border:2px solid #af3333;
+                text-align: center;
+                padding-top: 15px;
+                margin: 25px auto;
+                    
+            }
+            #result{
+                width:260px;
+                color:#4d5267;
+                height:300px;
+                background-color: #3071be;
+                border:2px solid #c74242;
+                margin: 25px auto;   
+            }
+        
+        </style>
+        <script>
+     function menu(county, State, region){
+         
+         var county ="King";
+         var State ="WA";
+         var region ="NorthWest";
+        
+         document.getElementById("meN").innerHTML =(county+"<br />" + State+"<br />" +region);
+     }       
+            
+function clickMe(){
+if (typeof(Storage) !== "undefined") {
+    
+    menu("","","");
+    
+    var setName = document.getElementById("nM").value;
+    var setCity = document.getElementById("cI").value;
+    var setComment = document.getElementById("bO").value;
+    
+    localStorage.setItem("name", setName);
+    localStorage.setItem("city", setCity);
+    localStorage.setItem("Box",setComment);
+    
+    document.getElementById("result").innerHTML=localStorage.getItem("name")+"<br/>"+localStorage.getItem("city")+"<br />"+localStorage.getItem("Box");
+    
+        
+   } 
+else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+  }
+
+            
+        </script>
+    
+    </head>
+<body>
+    <form>
+        <fieldset>
+            <legend><strong>Customer Info</strong></legend>
+            Name:<input name="name" id="nM"/>
+            <br /><br />
+            City:<input name="city"  id =cI />
+            <br ><br />
+            <label>Comment:</label>
+            <br />
+            <textarea name="Box" id="bO"></textarea>
+            <br /><br />
+            <button id="bU" type="button" onclick="clickMe();"><strong>click</strong></button>
+            <button id="bUD" type="reset" onclick="clickMe();"><strong>Reload</strong></button>
+        </fieldset>
+    </form>
+    
+<h3 id="meN"></h3>
+<h4 id="result"></h4>
+
+
+</body>
+</html>
