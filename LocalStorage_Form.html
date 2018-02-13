@@ -53,41 +53,69 @@
                 border:2px solid #c74242;
                 margin: 25px auto;   
             }
+            #meNU{
+                background-color: #955b5b;
+                width: 440px;
+                text-align: center;
+                margin-left: 440px;
+                
+                    
+            }
         
         </style>
         <script>
-     function menu(county, State, region){
-         
-         var county ="King";
-         var State ="WA";
-         var region ="NorthWest";
-        
-         document.getElementById("meN").innerHTML =(county+"<br />" + State+"<br />" +region);
-     }       
             
-function clickMe(){
+function menu(){
+         
+         var Store = "CrossRoad Mall";
+         var Name = "French Bakery";
+         var City = "Bellevue";
+        
+         return document.getElementById("meN").innerHTML =(Store+"<br />" + Name+"<br />" +City);
+     } 
+            
+     function Items(){
+         
+         console.log("Did you go through?");
+         var donut_type = {type_1:"Strawberry Choclate", type_2:"Cinnamon-Sugar",type_3:"Jelly",type_4:"Apple-Crumb "};
+         
+         var donut_frosting ={frosting_1:"Vanilla",frosting_2:"Marble-Frosted",forsting_3:"Kreme-Filled",frosting_4:"Bavarian Kreme-Filled"};
+       
+         
+         return document.getElementById("meNU").innerHTML =("Donut: "+"<br /><br />" +donut_type.type_1+"<br />" + donut_type.type_2+"<br />" +donut_type.type_3 +"<br />" +donut_type.type_4+"<br/><br/>"+"Frostings: "+"<br /><br />" + donut_frosting.frosting_1+"<br />" +donut_frosting.frosting_2 +"<br />" +donut_frosting.forsting_3+"<br />" +donut_frosting.frosting_4);
+        
+        
+         
+     }
+      
+window.clickMe = function(){
 if (typeof(Storage) !== "undefined") {
     
-    menu("","","");
+     menu();
+     Items();   
     
     var setName = document.getElementById("nM").value;
-    var setCity = document.getElementById("cI").value;
+    var setSize = document.getElementById("sI").value;
+    var setType = document.getElementById("tY").value;
+    var setFrosting = document.getElementById("fR").value;
     var setComment = document.getElementById("bO").value;
     
     localStorage.setItem("name", setName);
-    localStorage.setItem("city", setCity);
+    localStorage.setItem("size", setSize);
+    localStorage.setItem("type", setType);
+    localStorage.setItem("frosting",setFrosting);
     localStorage.setItem("Box",setComment);
     
-    document.getElementById("result").innerHTML=localStorage.getItem("name")+"<br/>"+localStorage.getItem("city")+"<br />"+localStorage.getItem("Box");
+    document.getElementById("result").innerHTML=localStorage.getItem("name")+"<br/>"+localStorage.getItem("size")+"<br />"+localStorage.getItem("type") +"<br/>"+localStorage.getItem("frosting") +"<br/>"+localStorage.getItem("Box");
     
         
    } 
 else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
   }
 
-            
+           
         </script>
     
     </head>
@@ -95,20 +123,29 @@ else {
     <form>
         <fieldset>
             <legend><strong>Customer Info</strong></legend>
-            Name:<input name="name" id="nM"/>
+            Name:<input name="name" id="nM" placeholder ="Enter donut's name"/>
             <br /><br />
-            City:<input name="city"  id =cI />
+            Size:<input name="size"  id ="sI" placeholder="small,medium,large"/>
             <br ><br />
+            
+            Type:<input name="type" id="tY" placeholder ="choose donut's type"/>
+            <br /><br />
+            Frosting:<input name="frosting"  id ="fR" placeholder="Enter a frosting's name" />
+            <br ><br />
+            
             <label>Comment:</label>
             <br />
             <textarea name="Box" id="bO"></textarea>
             <br /><br />
-            <button id="bU" type="button" onclick="clickMe();"><strong>click</strong></button>
-            <button id="bUD" type="reset" onclick="clickMe();"><strong>Reload</strong></button>
+            <button id="bU" type="button" onclick="clickMe()"><strong>click</strong></button>
+            <button id="bUD" type="reset" onclick="clickMe()"><strong>Reload</strong></button>
+            
         </fieldset>
     </form>
     
 <h3 id="meN"></h3>
+<h3 id="meNU"></h3>
+
 <h4 id="result"></h4>
 
 
